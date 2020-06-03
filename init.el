@@ -5,7 +5,7 @@
             '(
               (tool-bar-lines . 0)
               (width . 106) ; chars
-              (height . 60) ; lines
+              (height . 55) ; lines
               (background-color . "honeydew")
               (left . 50)
               (top . 50)))
@@ -24,6 +24,10 @@
 
 ;; Gets rid of start-up message window
 (setq inhibit-startup-message t)
+
+;; Enable line numbers globally
+(global-linum-mode t)  
+
 
 ;; Package Manager
 (require 'package)
@@ -49,9 +53,19 @@
   (which-key-mode))
 
 
-
-
-
+;; Python Package elpy
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable)
+  )
+;; Gets rid of python running bug due to missing pyreadline
+(setq python-shell-completion-native-enable nil)
+;; Use python3 instead of python2.7
+(setq python-shell-interpreter "python3")
+(setq elpy-rpc-python-command "python3")
+;; Gets rid of ^G bug for inferior-python compiler
+(setq elpy-shell-echo-output nil)
 
 
 

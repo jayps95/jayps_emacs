@@ -25,11 +25,11 @@
 ;; Gets rid of start-up message window
 (setq inhibit-startup-message t)
 
-;; Enable line numbers globally
+;;;;;; Enable line numbers globally ;;;;;;
 (global-linum-mode t)  
 
 
-;; Package Manager
+;;;;;; Package Manager ;;;;;;
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -37,23 +37,23 @@
 
 (package-initialize)
 
-;; Bootstrap `use-package'
+;;;;;; Bootstrap `use-package' ;;;;;;
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Allows one to try packages without installing permanently
+;;;;;; Allows one to try packages without installing permanently ;;;;;;
 (use-package try
   :ensure t)
 
-;; Great for learning emacs keys
+;;;;;; Great for learning emacs keys ;;;;;;
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
 
 
-;; Python Package elpy
+;;;;;; Python Package elpy;;;;;;
 (use-package elpy
   :ensure t
   :init
@@ -66,9 +66,13 @@
 (setq elpy-rpc-python-command "python3")
 ;; Gets rid of ^G bug for inferior-python compiler
 (setq elpy-shell-echo-output nil)
+;; Prevents input code from appearing in shell output
+(setq elpy-shell-echo-input nil)
 
-
-
+;;;;;; Iedit package for refactoring;;;;;;;;
+(use-package iedit
+  :ensure t
+  )
 
 
 
@@ -78,9 +82,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elpy-shell-echo-input nil)
  '(package-selected-packages
    (quote
-    (which-key use-package pyenv-mode material-theme magit-popup magit ghub exec-path-from-shell elpy better-defaults))))
+    (iedit which-key use-package pyenv-mode material-theme magit-popup magit ghub exec-path-from-shell elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

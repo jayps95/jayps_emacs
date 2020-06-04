@@ -26,7 +26,11 @@
 (setq inhibit-startup-message t)
 
 ;;;;;; Enable line numbers globally ;;;;;;
-(global-linum-mode t)  
+(global-linum-mode t)
+
+;;;;;; Change yes-no queries to y-n ;;;;;;
+(fset 'yes-or-no-p 'y-or-n-p)
+
 
 
 ;;;;;; Package Manager ;;;;;;

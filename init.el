@@ -32,7 +32,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 
-
 ;;;;;; Package Manager ;;;;;;
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -83,6 +82,13 @@
   :ensure t
   :init (global-flycheck-mode)
   )
+
+
+;;;;;; Company-mode for auto-completion for buffers (in general emacs) ;;;;;;
+(use-package company
+  :ensure t
+  :pin melpa)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Code auto-added by Melpa ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -74,6 +74,11 @@
   :ensure t
   )
 
+;;;;; Flycheck: On-the-go syntax checker for python ;;;;;;
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Code auto-added by Melpa ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,7 +90,7 @@
  '(elpy-shell-echo-input nil)
  '(package-selected-packages
    (quote
-    (iedit which-key use-package pyenv-mode material-theme magit-popup magit ghub exec-path-from-shell elpy better-defaults))))
+    (flycheck iedit which-key use-package pyenv-mode material-theme magit-popup magit ghub exec-path-from-shell elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

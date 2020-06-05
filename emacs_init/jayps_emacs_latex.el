@@ -1,11 +1,4 @@
 
-(defun my-inhibit-global-linum-mode ()
-  "Counter-act `global-linum-mode'."
-  (add-hook 'after-change-major-mode-hook
-            (lambda () (linum-mode -1))
-            :append :local)
-  )
-
 (use-package pdf-tools
   :ensure t
   ;;(pdf-tools-install) ;; Uncomment if it is the first time using this package
@@ -14,9 +7,6 @@
   (setq pdf-annot-activate-created-annotations t)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   (define-key pdf-view-mode-map (kbd "C-r") 'isearch-backward)
-  (add-hook 'term-mode-hook 'my-inhibit-global-linum-mode)
-  (add-hook 'pdf-view-mode-hook 'my-inhibit-global-linum-mode
-	    ) ;; removes linum-mode due to bug with pdf-tools
   )
 
 

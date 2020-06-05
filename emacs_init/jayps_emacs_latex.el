@@ -43,7 +43,6 @@
   :config (progn
 	    (setq TeX-source-correlate-mode t)
 	    (setq TeX-source-correlate-method 'synctex)
-	    (setq TeX-auto-save t)
 	    (setq TeX-parse-self t)
 	    (setq reftex-plug-into-AUCTeX t)
 	    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
@@ -54,6 +53,21 @@
 	    (add-hook 'LaTeX-mode-hook
 		      (lambda ()
 			(reftex-mode t)
-			(flyspell-mode t)))
+			(flyspell-mode t)
+			(magic-latex-buffer t)))
+	    
 	    )
+  )
+
+
+(use-package magic-latex-buffer
+  :ensure t
+  :config
+  (setq magic-latex-enable-block-highlight t
+      magic-latex-enable-suscript        t
+      magic-latex-enable-pretty-symbols  t
+      magic-latex-enable-block-align     t
+      magic-latex-enable-inline-image    t
+      magic-latex-enable-minibuffer-echo t)
+  :hook (latex-mode-hook . magic-latex-buffer)
   )

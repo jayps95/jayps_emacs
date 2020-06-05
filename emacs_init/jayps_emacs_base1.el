@@ -14,7 +14,7 @@
 Return the full path of *file-relative-path, relative to caller's file location.
 
 Example: If you have this line
- (get-fullpath \"../xyz.el\")
+xf (get-fullpath \"../xyz.el\")
 in the file at
  /home/mary/emacs/emacs_lib.el
 then the return value is
@@ -46,6 +46,7 @@ You want to be able to get the current file's full path regardless the file is r
 (load (get-fullpath "jayps_emacs_settings.el")) ;;loads settings such as window frame size, theme etc.
 (load (get-fullpath "jayps_emacs_packages.el")) ;; loads misc. packages
 (load (get-fullpath "jayps_emacs_python.el")) ;; loads elpy and python settings
+(load (get-fullpath "jayps_emacs_latex.el")) ;; loads latex and relevant packages
 
 
 

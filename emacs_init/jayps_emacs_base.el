@@ -10,7 +10,8 @@
 
 ;;;;;; Define function to get full path for load function ;;;;;;;
 (defun get-fullpath (@file-relative-path)
-    "Return the full path of *file-relative-path, relative to caller's file location.
+    "From: http://ergoemacs.org/emacs/organize_your_dot_emacs.html
+Return the full path of *file-relative-path, relative to caller's file location.
 
 Example: If you have this line
  (get-fullpath \"../xyz.el\")

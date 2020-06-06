@@ -1,5 +1,23 @@
 ;;;;;;; Jayps emacs base-init file ;;;;;;
 
+;; Findout load time of init file ;;
+(emacs-init-time)
+;; 1sec load time without ...latex.el
+;; with latex.el and only tex package disabled ... load time of 3.2s
+;; with latex.el and only auto-dict disabled ... load time of 3.1s
+;; with latex.el and only reftex disabled ... load time of 3.0s
+;; with latex.el and only latexmk disabled ... load time of 2.6s
+;; with latex.el and pdf-tools disabled ... load time of 1.4s
+;; with latex.el and final modification s.t. pdf-tools only loads on compiling pdf ... load time of 1.4s
+
+;;;;; Speeds up init file loading by increasing no. of bytes of consing b4 garbage collection is invoked ;;;;;
+(setq-default gc-cons-threshold 100000000)
+
+(add-hook 'emacs-startup-hook 'my/set-gc-threshold)
+(defun my/set-gc-threshold ()
+  "Reset `gc-cons-threshold' to its default value."
+  (setq-default gc-cons-threshold 800000))
+
 ;;;;;; Package Manager ;;;;;;
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -47,6 +65,7 @@ You want to be able to get the current file's full path regardless the file is r
 (load (get-fullpath "jayps_emacs_packages.el")) ;; loads misc. packages
 (load (get-fullpath "jayps_emacs_python.el")) ;; loads elpy and python settings
 (load (get-fullpath "jayps_emacs_latex.el")) ;; loads latex and relevant packages
+
 
 
 

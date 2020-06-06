@@ -2,13 +2,7 @@
 
 ;; Findout load time of init file ;;
 (emacs-init-time)
-;; 1sec load time without ...latex.el
-;; with latex.el and only tex package disabled ... load time of 3.2s
-;; with latex.el and only auto-dict disabled ... load time of 3.1s
-;; with latex.el and only reftex disabled ... load time of 3.0s
-;; with latex.el and only latexmk disabled ... load time of 2.6s
-;; with latex.el and pdf-tools disabled ... load time of 1.4s
-;; with latex.el and final modification s.t. pdf-tools only loads on compiling pdf ... load time of 1.4s
+(let ((file-name-handler-alist nil)) "jayps_emacs_base.el")
 
 ;;;;; Speeds up init file loading by increasing no. of bytes of consing b4 garbage collection is invoked ;;;;;
 ;; speeds up from 2.6s to 1.4s as of 6 June 2020
@@ -28,6 +22,16 @@
 
 (package-initialize)
 
+;;;;;; Track init-file startup times ;;;;;;;
+;; use M-x esup for init file and C-u M-x esup for specific modular files startuptime
+(use-package esup
+  :ensure t
+  :defer 1
+  ;; To use MELPA Stable use ":pin mepla-stable",
+  :pin melpa
+  :commands (esup))
+
+
 ;;;;;; Define function to get full path for load function ;;;;;;;
 (defun get-fullpath (@file-relative-path)
     "From: http://ergoemacs.org/emacs/organize_your_dot_emacs.html
@@ -43,7 +47,8 @@ Regardless how or where emacs_lib.el is called.
 
 This function solves 2 problems.
 
-① If you have file A, that calls the `load' on a file at B, and B calls `load' on file C using a relative path,
+① If you have file A, that calls the `load' on a file at B, and B calls `load' on file C
+ using a relative path,
  then Emacs will complain about unable to find C. Because, emacs does not switch current directory with `load'.
 
 To solve this problem, when your code only knows the relative path of another file C, you can use the variable
@@ -63,13 +68,10 @@ You want to be able to get the current file's full path regardless the file is r
 
 
 ;;;;;; loading separate .el files ;;;;
-(load (get-fullpath "jayps_emacs_settings.el")) ;;loads settings such as window frame size, theme etc. ~0.2s loading time as of 6 June 2020
-(load (get-fullpath "jayps_emacs_packages.el")) ;; loads misc. packages ~0.1s loading time as of June 2020
-(load (get-fullpath "jayps_emacs_python.el")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
-(load (get-fullpath "jayps_emacs_latex.el")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
-
-
-
+(load (get-fullpath "jayps_emacs_settings")) ;;loads settings such as window frame size, theme etc. ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "jayps_emacs_packages")) ;; loads misc. packages ~0.1s loading time as of June 2020
+(load (get-fullpath "jayps_emacs_python")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "jayps_emacs_latex")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
 
 
 

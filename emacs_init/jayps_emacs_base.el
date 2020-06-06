@@ -24,12 +24,12 @@
 
 ;;;;;; Track init-file startup times ;;;;;;;
 ;; use M-x esup for init file and C-u M-x esup for specific modular files startuptime
-(use-package esup
-  :ensure t
-  :defer 1
-  ;; To use MELPA Stable use ":pin mepla-stable",
-  :pin melpa
-  :commands (esup))
+;; (use-package esup
+;;   :ensure t
+;;   :defer 1
+;;   ;; To use MELPA Stable use ":pin mepla-stable",
+;;   :pin melpa
+;;   :commands (esup))
 
 
 ;;;;;; Define function to get full path for load function ;;;;;;;

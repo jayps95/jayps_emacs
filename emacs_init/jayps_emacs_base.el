@@ -11,9 +11,11 @@
 ;; with latex.el and final modification s.t. pdf-tools only loads on compiling pdf ... load time of 1.4s
 
 ;;;;; Speeds up init file loading by increasing no. of bytes of consing b4 garbage collection is invoked ;;;;;
+;; speeds up from 2.6s to 1.4s as of 6 June 2020
 (setq-default gc-cons-threshold 100000000)
 
-(add-hook 'emacs-startup-hook 'my/set-gc-threshold)
+;; resets bytes for garbage collection threshold, wouldn't want 100mb of RAM for this
+( add-hook 'emacs-startup-hook 'my/set-gc-threshold)
 (defun my/set-gc-threshold ()
   "Reset `gc-cons-threshold' to its default value."
   (setq-default gc-cons-threshold 800000))
@@ -61,10 +63,10 @@ You want to be able to get the current file's full path regardless the file is r
 
 
 ;;;;;; loading separate .el files ;;;;
-(load (get-fullpath "jayps_emacs_settings.el")) ;;loads settings such as window frame size, theme etc.
-(load (get-fullpath "jayps_emacs_packages.el")) ;; loads misc. packages
-(load (get-fullpath "jayps_emacs_python.el")) ;; loads elpy and python settings
-(load (get-fullpath "jayps_emacs_latex.el")) ;; loads latex and relevant packages
+(load (get-fullpath "jayps_emacs_settings.el")) ;;loads settings such as window frame size, theme etc. ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "jayps_emacs_packages.el")) ;; loads misc. packages ~0.1s loading time as of June 2020
+(load (get-fullpath "jayps_emacs_python.el")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "jayps_emacs_latex.el")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
 
 
 

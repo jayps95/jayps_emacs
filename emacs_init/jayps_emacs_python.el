@@ -23,6 +23,3 @@
   ;; Gets rid of python running bug due to missing pyreadline
   (setq python-shell-completion-native-enable nil)
   )
-
-
-

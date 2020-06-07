@@ -88,3 +88,12 @@
      '(aw-leading-char-face
        ((t (:inherit ace-jump-face-foreground :height 3.0))))) 
     ))
+
+
+
+;;;; fancy delimiters ;;;;;
+(use-package rainbow-delimiters
+  :ensure t
+  :defer 1
+  :hook (prog-mode . rainbow-delimiters-mode)
+  )

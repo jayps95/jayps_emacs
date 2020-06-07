@@ -68,10 +68,10 @@ You want to be able to get the current file's full path regardless the file is r
 
 
 ;;;;;; loading separate .el files ;;;;
-(load (get-fullpath "jayps_emacs_settings")) ;;loads settings such as window frame size, theme etc. ~0.2s loading time as of 6 June 2020
-(load (get-fullpath "jayps_emacs_packages")) ;; loads misc. packages ~0.1s loading time as of June 2020
-(load (get-fullpath "jayps_emacs_python")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
-(load (get-fullpath "jayps_emacs_latex")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
+(load (get-fullpath "settings")) ;;loads settings such as window frame size, theme etc. ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "packages")) ;; loads misc. packages ~0.1s loading time as of June 2020
+(load (get-fullpath "python")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
+(load (get-fullpath "latex")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
 
 
 

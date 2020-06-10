@@ -3,21 +3,22 @@
 (use-package pdf-tools
   :ensure
   :defer t
-  ;;(pdf-tools-install) ;; Uncomment if it is the first time using this package
- ; :mode ("\\.pdf\\'" . pdf-view-mode) ;; enables pdf-tools to be loaded only when compiling, allows for faster startup time
+  :mode ("\\.pdf\\'" . pdf-view-mode) ;; enables pdf-tools to be loaded only when compiling, allows for faster startup time
   :config
+  (pdf-tools-install) ;; Uncomment if it is the first time using this package
   (setq-default pdf-view-display-size 'fit-page)
   (setq pdf-annot-activate-created-annotations t)
   (setq pdf-view-use-unicode-ligther nil)
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   (define-key pdf-view-mode-map (kbd "C-r") 'isearch-backward)
+  (setq pdf-view-use-scaling t)
   )
 
 
 ;;Enables latexmk compilation
 (use-package auctex-latexmk
   :ensure t
-  :defer 2
+  :defer 1
   :config
   (auctex-latexmk-setup)
   (setq auctex-latexmk-inherit-TeX-PDF-mode t)
@@ -26,7 +27,7 @@
 ;;Bibliography support for latex
 (use-package reftex
   :ensure t
-  :defer t
+  :defer 1
   :config
   (setq reftex-cite-prompt-optional-args t)
   ) ;; Prompt for empty optional arguments in cite
@@ -45,9 +46,10 @@
   :init (company-auctex-init)
   )
 
-;; enabels auctex
+;; enables auctex
 (use-package tex
   :ensure auctex
+  :defer 1
   :mode ("\\.tex\\'" . latex-mode)
   :config (progn
 	    (setq TeX-source-correlate-mode t)
@@ -80,3 +82,5 @@
       magic-latex-enable-inline-image    t
       magic-latex-enable-minibuffer-echo t)
   )
+
+

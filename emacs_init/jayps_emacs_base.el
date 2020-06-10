@@ -18,12 +18,15 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+	     '("melpa" . "https://melpa.org/packages/")
+	     '("org" . "https://orgmode.org/elpa/")
+	     )
 
 (package-initialize)
 
 ;;;;;; Track init-file startup times ;;;;;;;
 ;; use M-x esup for init file and C-u M-x esup for specific modular files startuptime
+
 ;; (use-package esup
 ;;   :ensure t
 ;;   :defer 1
@@ -72,6 +75,7 @@ You want to be able to get the current file's full path regardless the file is r
 (load (get-fullpath "packages")) ;; loads misc. packages ~0.1s loading time as of June 2020
 (load (get-fullpath "python")) ;; loads elpy and python settings ~0.2s loading time as of 6 June 2020
 (load (get-fullpath "latex")) ;; loads latex and relevant packages ~0.4s loading time as of 6 June 2020
+(load (get-fullpath "org")) ;; loads org related packages
 
 
 

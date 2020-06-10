@@ -2,7 +2,6 @@
 ;; Uses pdf-tools as pdf viewer
 (use-package pdf-tools
   :ensure
-  :defer t
   :mode ("\\.pdf\\'" . pdf-view-mode) ;; enables pdf-tools to be loaded only when compiling, allows for faster startup time
   :config
   (pdf-tools-install) ;; Uncomment if it is the first time using this package
@@ -49,7 +48,6 @@
 ;; enables auctex
 (use-package tex
   :ensure auctex
-  :defer 1
   :mode ("\\.tex\\'" . latex-mode)
   :config (progn
 	    (setq TeX-source-correlate-mode t)

@@ -32,7 +32,7 @@
 (use-package company
   :ensure t
   :defer 1
-  :pin melpa
+  :pin "melpa"
   )
 
 

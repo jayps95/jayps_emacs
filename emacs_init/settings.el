@@ -24,6 +24,9 @@
 ;; Gets rid of start-up message window
 (setq inhibit-startup-message t)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+
 ;;;;;; Enable line numbers globally ;;;;;;
 ;; display-line-numbers will not appear in pdf-tools viewer due to bug which will cause it to be slow. This is done through the function below. Source: emacs website
 (require 'display-line-numbers)

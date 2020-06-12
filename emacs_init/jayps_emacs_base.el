@@ -6,6 +6,7 @@
 
 ;;;;; Speeds up init file loading by increasing no. of bytes of consing b4 garbage collection is invoked ;;;;;
 ;; speeds up from 2.6s to 1.4s as of 6 June 2020
+;; after emacs-mac installation, addition of org.el, macos_keybind.el, loadtime increased to 1.8s as of 12 June
 (setq-default gc-cons-threshold 100000000)
 
 ;; resets bytes for garbage collection threshold, wouldn't want 100mb of RAM for this

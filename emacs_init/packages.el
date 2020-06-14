@@ -1,7 +1,7 @@
 ;;;;;; Allows one to try packages without installing permanently ;;;;;;
 (use-package try
   :ensure t
-  :defer 2
+  :defer 2 ;; loads package when emacs is idle for 2seconds
   )
 
 ;;;;;; Great for learning emacs keys ;;;;;;
@@ -97,3 +97,16 @@
   :defer 1
   :hook (prog-mode . rainbow-delimiters-mode)
   )
+
+;;;;; Undo tree package ;;;;;
+(use-package undo-tree
+  :ensure t
+  :defer 1
+  :bind ( ("C-z" . undo-tree-undo) ;; ctrl-z binding
+	  ("C-S-z" . undo-tree-redo) ;; ctrl-shift-z binding
+	 )
+  :init
+  (global-undo-tree-mode))
+
+
+

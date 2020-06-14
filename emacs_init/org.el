@@ -1,7 +1,9 @@
 (use-package org
   :ensure t
   :defer 1
-  :hook (org-mode . visual-line-mode)
+  :hook ((org-mode . visual-line-mode)
+	 (org-mode . flyspell-mode)
+	 )
   )
 
 (use-package org-bullets

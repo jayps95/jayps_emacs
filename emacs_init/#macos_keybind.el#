@@ -12,9 +12,14 @@
 (global-set-key (kbd "s-v") 'yank)
 
 
+;; ;; Emacs-mac bindz minimize to C-z so we unbind it
+;; (global-unset-key (kbd "C-z"))
+
+
 ;; Next and previous 5 lines
 (global-set-key (kbd "M-n")
     (lambda () (interactive) (forward-line  5)))
 (global-set-key (kbd "M-p")
     (lambda () (interactive) (forward-line -5)))
+
 

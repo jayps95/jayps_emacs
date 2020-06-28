@@ -4,6 +4,8 @@
   :hook ((org-mode . visual-line-mode)
 	 (org-mode . flyspell-mode)
 	 )
+  :config
+  (setq org-support-shift-select t)
   )
 
 (use-package org-bullets
